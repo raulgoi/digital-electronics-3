@@ -38,39 +38,39 @@ In this laboratory exercise, you will study the differences between a statically
    <!--
    https://editor.codecogs.com/
    \begin{align*}
-       q_{n+1}^D =&~D \\
+       q_{n+1}^D =&~D \\ 
        q_{n+1}^{JK} =& \\
        q_{n+1}^T =& \\
    \end{align*}
    -->
 
    **D-type FF**
-   | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments** |
+   | **clk** | **d** | **q(n)** | **q(n+1)** | **Comments D** |
    | :-: | :-: | :-: | :-: | :-- |
    | ![rising](images/eq_uparrow.png) | 0 | 0 | 0 | `q(n+1)` has the same level as `d` |
-   | ![rising](images/eq_uparrow.png) | 0 | 1 |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
+   | ![rising](images/eq_uparrow.png) | 0 | 1 | 0 | `q(n+1)`has the same level as `d` |
+   | ![rising](images/eq_uparrow.png) | 1 | 0 | 1 | `q(n+1)` has the same level as `d` |
+   | ![rising](images/eq_uparrow.png) | 1 | 1 | 1 | All have the same level |
 
    **JK-type FF**
-   | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments** |
+   | **clk** | **j** | **k** | **q(n)** | **q(n+1)** | **Comments Jq + kQ** |
    | :-: | :-: | :-: | :-: | :-: | :-- |
    | ![rising](images/eq_uparrow.png) | 0 | 0 | 0 | 0 | Output did not change |
    | ![rising](images/eq_uparrow.png) | 0 | 0 | 1 | 1 | Output did not change |
-   | ![rising](images/eq_uparrow.png) | 0 |  |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 0 |  |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |  |
+   | ![rising](images/eq_uparrow.png) | 0 | 1 | 0 | 0 | Output did not change |
+   | ![rising](images/eq_uparrow.png) | 0 | 1 | 1 | 0 | SET |
+   | ![rising](images/eq_uparrow.png) | 1 | 0 | 0 | 1 | RESET |
+   | ![rising](images/eq_uparrow.png) | 1 | 0 | 1 | 1 | Output did not change |
+   | ![rising](images/eq_uparrow.png) | 1 | 1 | 0 | 1 | RESET |
+   | ![rising](images/eq_uparrow.png) | 1 | 1 | 1 | 0 | SET |
 
    **T-type FF**
-   | **clk** | **t** | **q(n)** | **q(n+1)** | **Comments** |
+   | **clk** | **t** | **q(n)** | **q(n+1)** | **Comments TQ + tQ** |
    | :-: | :-: | :-: | :-: | :-- |
    | ![rising](images/eq_uparrow.png) | 0 | 0 | 0 | Output did not change |
-   | ![rising](images/eq_uparrow.png) | 0 | 1 |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
-   | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
+   | ![rising](images/eq_uparrow.png) | 0 | 1 | 0 | SET |
+   | ![rising](images/eq_uparrow.png) | 1 | 1 | 1 | Output did not change |
+   | ![rising](images/eq_uparrow.png) | 1 | 0 | 1 | RESET |
 
 <a name="part1"></a>
 
@@ -283,7 +283,7 @@ The basic difference between a latch and a flip-flop is a gating or clocking mec
       end architecture testbench;
       ```
 
-2. Create at least one other design source VHDL file and define a different type of flip-flop, such as flip-flop D with asynchronous reset, flip-flop JK with synchronization reset, or T flip-flop with synchronization reset. (Prefered combination is `d_ff_rst` and [`t_ff_rst`](https://github.com/tomas-fryza/digital-electronics-1/blob/master/labs/05-ffs/assignment.md)).
+2. Create at least one other source VHDL file and define a different type of flip-flop, such as flip-flop D with asynchronous reset, flip-flop JK with synchronization reset, or T flip-flop with synchronization reset. (Prefered combination is `d_ff_rst` and `t_ff_rst`).
 
    | **Entity** | **Inputs** | **Outputs** | **Description** |
    | :-- | :-- | :-- | :-- |
